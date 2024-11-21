@@ -4,14 +4,14 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=sammy
+User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/solana_token_holder_analyzer
 ExecStart=/home/ubuntu/solana_token_holder_analyzer/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
-          mysite.wsgi.application
+          mysite.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
