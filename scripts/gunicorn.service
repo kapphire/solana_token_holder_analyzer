@@ -10,7 +10,7 @@ WorkingDirectory=/home/ubuntu/solana_token_holder_analyzer
 ExecStart=/home/ubuntu/solana_token_holder_analyzer/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
-          --bind unix:/run/gunicorn.sock \
+          --bind unix:/tmp/django.sock \
           mysite.wsgi:application
 
 [Install]
