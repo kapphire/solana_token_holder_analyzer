@@ -1,4 +1,5 @@
 .vscode/
+venv/
 solana_analyzer.py
 myattempt.py
 solana_analyzer_.py
