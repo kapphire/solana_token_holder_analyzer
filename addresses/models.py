@@ -7,3 +7,6 @@ class Address(models.Model):
 
     class Meta:
         ordering = ['created']
+
+    def __str__(self):
+        return f"{self.address}"

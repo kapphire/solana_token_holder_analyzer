@@ -14,21 +14,20 @@ class AddressList(generics.ListCreateAPIView):
     def create(self, request, *args, **kwargs):
         # Custom logic before saving
         data = request.data
-        print("Custom logic before saving the object", data, data.get('address'))
         token_analyzer = SolanaTokenAnalyzer(data.get('address'))
         token_data = token_analyzer.update_holder_data()
-        print(token_data, '================')
+
         # Use the serializer to validate the data
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
 
         # Save the object
-        # self.perform_create(serializer)
+        if token_data:
+            self.perform_create(serializer)
 
         # Custom logic after saving
         # response_data = serializer.data
-        response_data = {}
-        print("Custom logic after saving the object", response_data)
+        response_data = token_data
 
         # Return a custom response
         return Response(response_data, status=status.HTTP_201_CREATED)
