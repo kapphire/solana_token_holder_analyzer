@@ -1,0 +1,14 @@
+server {
+    listen 80;
+    server_name 54.160.184.59;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/ubuntu/solana_token_holder_analyzer;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}
