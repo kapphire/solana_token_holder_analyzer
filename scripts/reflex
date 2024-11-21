@@ -30,3 +30,22 @@ server {
         root /usr/share/nginx/html;
     }
 }
+
+
+
+server {
+    listen 80;
+    server_name 54.160.184.59;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    
+    location /static/ {
+        alias /home/ubuntu/solana_token_holder_analyzer/static/;
+        autoindex on;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}
