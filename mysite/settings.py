@@ -130,6 +130,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://54.160.184.59/",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://54.160.184.59/",
+    "http://localhost:3000",
+]
+
 # Optional: Allow specific methods (GET, POST, etc.)
 CORS_ALLOW_METHODS = [
     'GET',

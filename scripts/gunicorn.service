@@ -1,6 +1,5 @@
 [Unit]
 Description=gunicorn daemon
-Requires=gunicorn.socket
 After=network.target
 
 [Service]
@@ -10,7 +9,7 @@ WorkingDirectory=/home/ubuntu/solana_token_holder_analyzer
 ExecStart=/home/ubuntu/solana_token_holder_analyzer/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
-          --bind unix:/tmp/django.sock \
+          --bind 127.0.0.1:8000 \
           mysite.wsgi:application
 
 [Install]
