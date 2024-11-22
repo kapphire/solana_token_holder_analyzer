@@ -127,11 +127,11 @@ CORS_ALLOW_CREDENTIALS = False
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://54.160.184.59/",
+    "http://54.160.184.59",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://54.160.184.59/",
+    "http://54.160.184.59",
     "http://localhost:3000",
 ]
 

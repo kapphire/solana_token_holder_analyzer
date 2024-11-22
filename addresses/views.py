@@ -4,11 +4,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from addresses.handlers import SolanaTokenAnalyzer
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from rest_framework import generics
 
 
-@csrf_exempt
+@method_decorator(csrf_exempt, name='dispatch')
 class AddressList(generics.ListCreateAPIView):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
