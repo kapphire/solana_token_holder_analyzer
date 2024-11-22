@@ -145,3 +145,5 @@ CORS_ALLOW_METHODS = [
     'OPTIONS',
 ]
 
+CSRF_COOKIE_NAME = "csrftoken"
+
