@@ -1,13 +1,14 @@
 from addresses.models import Address
 from addresses.serializers import AddressSerializer
-from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework import status
 from addresses.handlers import SolanaTokenAnalyzer
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import generics
 
-# Create your views here.
+
+@csrf_exempt
 class AddressList(generics.ListCreateAPIView):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
